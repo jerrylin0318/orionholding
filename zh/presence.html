@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球佈局 - Orion Holding Limited</title>
-    <meta name="description" content="Orion Holding Limited的全球策略佈局">
+    <title>全球據點 - Orion Holding Limited</title>
+    <meta name="description" content="了解 Orion Holding Limited 在亞洲的策略性布局與營運據點">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
@@ -32,6 +32,13 @@
         }
     </script>
     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
         .mobile-menu {
             display: none;
             position: fixed;
@@ -45,38 +52,70 @@
         .mobile-menu.active {
             display: flex;
         }
-        .region {
+        .page-header {
+            position: relative;
+            height: 60vh;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        @media (max-width: 640px) {
+            .page-header {
+                background-image: url('../images/headers/mobile/presence-header.jpg');
+                height: 40vh;
+            }
+        }
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .page-header {
+                background-image: url('../images/headers/tablet/presence-header.jpg');
+                height: 50vh;
+            }
+        }
+        @media (min-width: 1025px) {
+            .page-header {
+                background-image: url('../images/headers/desktop/presence-header.jpg');
+            }
+        }
+        .header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8));
+        }
+        .region-card {
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
-        .region::after {
+        .region-card::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             background: linear-gradient(45deg, rgba(26, 54, 93, 0.05), rgba(26, 54, 93, 0));
             transition: opacity 0.3s ease;
         }
-        .region:hover::after {
+        .region-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .region-card:hover::after {
             opacity: 0.8;
         }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <header class="bg-corporate text-white">
+    <!-- Fixed Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-corporate" id="mainHeader">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="text-xl font-serif">
-                    <a href="index.html" class="hover:text-accent transition text-2xl">Orion Holding Limited</a>
+                    <a href="index.html" class="text-white hover:text-accent transition">Orion Holding Limited</a>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-accent transition">首頁</a>
-                    <a href="about.html" class="hover:text-accent transition">關於我們</a>
-                    <a href="presence.html" class="hover:text-accent transition">全球佈局</a>
-                    <a href="contact.html" class="hover:text-accent transition">聯絡方式</a>
-                    <a href="../presence.html" class="hover:text-accent transition">English</a>
+                    <a href="index.html" class="text-white hover:text-accent transition">首頁</a>
+                    <a href="about.html" class="text-white hover:text-accent transition">關於我們</a>
+                    <a href="presence.html" class="text-white hover:text-accent transition">全球據點</a>
+                    <a href="contact.html" class="text-white hover:text-accent transition">聯絡方式</a>
+                    <a href="../presence.html" class="text-white hover:text-accent transition">English</a>
                 </div>
                 <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,7 +137,7 @@
             <nav class="flex flex-col space-y-8 text-2xl text-white">
                 <a href="index.html" class="hover:text-accent transition">首頁</a>
                 <a href="about.html" class="hover:text-accent transition">關於我們</a>
-                <a href="presence.html" class="hover:text-accent transition">全球佈局</a>
+                <a href="presence.html" class="hover:text-accent transition">全球據點</a>
                 <a href="contact.html" class="hover:text-accent transition">聯絡方式</a>
                 <a href="../presence.html" class="hover:text-accent transition">English</a>
             </nav>
@@ -106,68 +145,78 @@
     </div>
 
     <main>
-        <div class="bg-corporate-dark text-white py-20">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="header-overlay"></div>
+            <div class="relative h-full flex items-center">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl animate-fade-in">
+                        <h1 class="text-4xl md:text-6xl font-serif text-white mb-6">全球據點</h1>
+                        <p class="text-xl md:text-2xl text-white opacity-90">
+                            我們的策略性網絡遍布亞洲各個重要地區，在多個策略市場建立營運據點。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regions Section -->
+        <section class="py-20 bg-white -mt-20 relative rounded-t-3xl shadow-lg">
             <div class="container mx-auto px-6">
-                <h1 class="text-4xl font-serif mb-6">全球佈局</h1>
-                <p class="text-xl opacity-85 max-w-3xl">
-                    我們的策略網絡遍及亞洲及其他重要區域，在多個策略性市場建立營運據點。
-                </p>
-            </div>
-        </div>
-
-        <div class="container mx-auto px-6 py-20">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-sm region">
-                    <h3 class="text-xl font-serif text-corporate mb-4">東南亞地區</h3>
-                    <p class="text-gray-600">
-                        在東南亞成熟市場建立策略性據點，專注於區域發展與成長機會。
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-sm region">
-                    <h3 class="text-xl font-serif text-corporate mb-4">東亞地區</h3>
-                    <p class="text-gray-600">
-                        在東亞發達市場開展業務，善用科技創新與市場發展機遇。
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-sm region">
-                    <h3 class="text-xl font-serif text-corporate mb-4">新興地區</h3>
-                    <p class="text-gray-600">
-                        在亞洲及非洲的精選新興市場建立策略性布局，著重永續發展。
-                    </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="region-card bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-serif text-corporate mb-4">東南亞地區</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            在東南亞成熟市場建立策略性據點，專注於區域發展與成長機會。
+                        </p>
+                    </div>
+                    
+                    <div class="region-card bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-serif text-corporate mb-4">東亞地區</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            在東亞發達市場開展業務，把握科技進步與創新機遇。
+                        </p>
+                    </div>
+                    
+                    <div class="region-card bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-serif text-corporate mb-4">新興市場</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            在亞洲和非洲的精選新興市場建立策略性布局，著重永續發展。
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="bg-gray-100 py-20">
+        <!-- Strategy Section -->
+        <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-2xl font-serif text-corporate mb-8 text-center">區域策略</h2>
+                    <h2 class="text-3xl font-serif text-corporate mb-12 text-center">區域策略</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div>
+                        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                             <h3 class="text-xl font-serif text-corporate mb-4">市場策略</h3>
-                            <p class="text-gray-600">
-                                我們在各區域的布局均配合當地商業環境，同時維持國際標準。
+                            <p class="text-gray-600 text-lg leading-relaxed">
+                                我們在各地區的布局均經過精心規劃，既符合當地商業環境，又保持國際標準。
                             </p>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-serif text-corporate mb-4">發展重點</h3>
-                            <p class="text-gray-600">
-                                我們發掘並開發結合區域動態與永續成長潛力的機會。
+                        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <h3 class="text-xl font-serif text-corporate mb-4">成長方向</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">
+                                我們識別並發展結合區域動態與永續成長潛力的機會。
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer class="bg-corporate-dark text-white mt-auto">
-        <div class="container mx-auto px-6 py-8">
+    <footer class="bg-corporate-dark text-white">
+        <div class="container mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h3 class="text-xl font-serif mb-4">Orion Holding Limited</h3>
+                    <h3 class="text-lg font-serif mb-4">Orion Holding Limited</h3>
                     <p class="text-gray-300 text-sm">
                         成立於2016年
                     </p>

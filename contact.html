@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Orion Holding Limited</title>
-    <meta name="description" content="Contact Orion Holding Limited">
+    <meta name="description" content="Contact Orion Holding Limited - Our office locations and communication channels">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
@@ -32,6 +32,13 @@
         }
     </script>
     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
         .mobile-menu {
             display: none;
             position: fixed;
@@ -45,20 +52,58 @@
         .mobile-menu.active {
             display: flex;
         }
+        .page-header {
+            position: relative;
+            height: 60vh;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        @media (max-width: 640px) {
+            .page-header {
+                background-image: url('images/headers/mobile/contact-header.jpg');
+                height: 40vh;
+            }
+        }
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .page-header {
+                background-image: url('images/headers/tablet/contact-header.jpg');
+                height: 50vh;
+            }
+        }
+        @media (min-width: 1025px) {
+            .page-header {
+                background-image: url('images/headers/desktop/contact-header.jpg');
+            }
+        }
+        .header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8));
+        }
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <header class="bg-corporate text-white">
+    <!-- Fixed Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-corporate" id="mainHeader">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="text-xl font-serif">
-                    <a href="index.html" class="hover:text-accent transition">Orion Holding Limited</a>
+                    <a href="index.html" class="text-white hover:text-accent transition">Orion Holding Limited</a>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-accent transition">Home</a>
-                    <a href="about.html" class="hover:text-accent transition">About</a>
-                    <a href="presence.html" class="hover:text-accent transition">Presence</a>
-                    <a href="contact.html" class="hover:text-accent transition">Contact</a>
+                    <a href="index.html" class="text-white hover:text-accent transition">Home</a>
+                    <a href="about.html" class="text-white hover:text-accent transition">About</a>
+                    <a href="presence.html" class="text-white hover:text-accent transition">Presence</a>
+                    <a href="contact.html" class="text-white hover:text-accent transition">Contact</a>
+                    <a href="zh/contact.html" class="text-white hover:text-accent transition">中文</a>
                 </div>
                 <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,65 +127,76 @@
                 <a href="about.html" class="hover:text-accent transition">About</a>
                 <a href="presence.html" class="hover:text-accent transition">Presence</a>
                 <a href="contact.html" class="hover:text-accent transition">Contact</a>
+                <a href="zh/contact.html" class="hover:text-accent transition">中文</a>
             </nav>
         </div>
     </div>
 
     <main>
-        <div class="bg-corporate-dark text-white py-20">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="header-overlay"></div>
+            <div class="relative h-full flex items-center">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl animate-fade-in">
+                        <h1 class="text-4xl md:text-6xl font-serif text-white mb-6">Contact Information</h1>
+                        <p class="text-xl md:text-2xl text-white opacity-90">
+                            Our office locations serve as strategic hubs for our operations across Asia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Office Section -->
+        <section class="py-20 bg-white -mt-20 relative rounded-t-3xl shadow-lg">
             <div class="container mx-auto px-6">
-                <h1 class="text-4xl font-serif mb-6">Contact Information</h1>
-                <p class="text-xl opacity-85 max-w-3xl">
-                    Our office locations serve as strategic hubs for our operations across Asia.
-                </p>
-            </div>
-        </div>
-
-        <div class="container mx-auto px-6 py-20">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-lg shadow-sm p-8 mb-12">
-                    <h2 class="text-2xl font-serif text-corporate mb-6">Principal Office</h2>
-                    <p class="text-gray-600 mb-4">
-                        Kuala Lumpur, Malaysia
-                    </p>
-                    <p class="text-gray-600">
-                        Office Hours: Monday - Friday<br>
-                        9:00 AM - 5:00 PM (GMT+8)
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div class="bg-white rounded-lg shadow-sm p-8">
-                        <h3 class="text-xl font-serif text-corporate mb-4">Business Inquiries</h3>
-                        <p class="text-gray-600">
-                            For business-related matters, please contact through appropriate professional channels or intermediaries.
+                <div class="max-w-4xl mx-auto">
+                    <div class="contact-card bg-white rounded-lg shadow-sm p-8 mb-12">
+                        <h2 class="text-3xl font-serif text-corporate mb-6">Principal Office</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-4">
+                            Kuala Lumpur, Malaysia
+                        </p>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            Office Hours: Monday - Friday<br>
+                            9:00 AM - 5:00 PM (GMT+8)
                         </p>
                     </div>
 
-                    <div class="bg-white rounded-lg shadow-sm p-8">
-                        <h3 class="text-xl font-serif text-corporate mb-4">Professional Relations</h3>
-                        <p class="text-gray-600">
-                            Institutional and professional inquiries are handled through established business networks.
-                        </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div class="contact-card bg-white rounded-lg shadow-sm p-8">
+                            <h3 class="text-2xl font-serif text-corporate mb-4">Business Inquiries</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">
+                                For business-related matters, please contact through appropriate professional channels or intermediaries.
+                            </p>
+                        </div>
+
+                        <div class="contact-card bg-white rounded-lg shadow-sm p-8">
+                            <h3 class="text-2xl font-serif text-corporate mb-4">Professional Relations</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">
+                                Institutional and professional inquiries are handled through established business networks.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="bg-gray-100 py-20">
+        <!-- Communication Policy -->
+        <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="max-w-3xl mx-auto text-center">
-                    <h2 class="text-2xl font-serif text-corporate mb-6">Communication Policy</h2>
-                    <p class="text-gray-600 leading-relaxed">
+                    <h2 class="text-3xl font-serif text-corporate mb-8">Communication Policy</h2>
+                    <p class="text-gray-600 text-lg leading-relaxed">
                         We maintain professional communication protocols and respond to inquiries through appropriate business channels. All communications are handled with strict confidentiality.
                     </p>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer class="bg-corporate-dark text-white mt-auto">
-        <div class="container mx-auto px-6 py-8">
+    <footer class="bg-corporate-dark text-white">
+        <div class="container mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h3 class="text-lg font-serif mb-4">Orion Holding Limited</h3>

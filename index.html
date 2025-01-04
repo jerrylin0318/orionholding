@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion Holding Limited</title>
-    <meta name="description" content="Orion Holding Limited - Est. 2016">
+    <meta name="description" content="Orion Holding Limited - Strategic Investment & Sustainable Growth">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
@@ -32,6 +32,13 @@
         }
     </script>
     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
         .mobile-menu {
             display: none;
             position: fixed;
@@ -45,21 +52,61 @@
         .mobile-menu.active {
             display: flex;
         }
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        @media (max-width: 640px) {
+            .hero-section {
+                background-image: url('images/headers/mobile/index-header.jpg');
+            }
+        }
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .hero-section {
+                background-image: url('images/headers/tablet/index-header.jpg');
+            }
+        }
+        @media (min-width: 1025px) {
+            .hero-section {
+                background-image: url('images/headers/desktop/index-header.jpg');
+            }
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8));
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <header class="bg-corporate text-white">
+    <!-- Fixed Header -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="mainHeader">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="text-xl font-serif">
-                    <a href="index.html" class="hover:text-accent transition">Orion Holding Limited</a>
+                    <a href="index.html" class="text-white hover:text-accent transition">Orion Holding Limited</a>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-accent transition">Home</a>
-                    <a href="about.html" class="hover:text-accent transition">About</a>
-                    <a href="presence.html" class="hover:text-accent transition">Presence</a>
-                    <a href="contact.html" class="hover:text-accent transition">Contact</a>
-                    <a href="zh/index.html" class="hover:text-accent transition">中文</a>
+                    <a href="index.html" class="text-white hover:text-accent transition">Home</a>
+                    <a href="about.html" class="text-white hover:text-accent transition">About</a>
+                    <a href="presence.html" class="text-white hover:text-accent transition">Presence</a>
+                    <a href="contact.html" class="text-white hover:text-accent transition">Contact</a>
+                    <a href="zh/index.html" class="text-white hover:text-accent transition">中文</a>
                 </div>
                 <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,52 +136,64 @@
     </div>
 
     <main>
-        <div class="relative h-screen max-h-[800px] bg-corporate-dark">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="relative container mx-auto px-6 h-full flex items-center">
-                <div class="text-white max-w-3xl">
-                    <h1 class="text-5xl md:text-6xl font-serif mb-8 leading-tight">
-                        Strategic Investment<br>
-                        Sustainable Growth
-                    </h1>
-                    <p class="text-xl md:text-2xl opacity-90 font-light mb-4">
-                        A strategic investment holding company established in 2016
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="relative h-full flex items-center">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl animate-fade-in">
+                        <h1 class="text-5xl md:text-7xl font-serif text-white mb-8 leading-tight">
+                            Strategic Investment<br>
+                            <span class="text-accent">Sustainable Growth</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-white opacity-90 font-light mb-6">
+                            A strategic investment holding company established in 2016
+                        </p>
+                        <p class="text-lg md:text-xl text-white opacity-80">
+                            Focused on sustainable growth and value creation across Asia
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <svg class="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Investment Focus Section -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-serif text-corporate mb-8">Investment Focus</h2>
+                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-6">
+                        We maintain strategic interests in established markets across Asia, with a balanced approach to investment and asset management.
                     </p>
-                    <p class="text-lg md:text-xl opacity-80">
-                        Focused on sustainable growth and value creation across Asia
+                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed">
+                        Our portfolio spans multiple sectors, managed with professional expertise and international standards.
                     </p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="container mx-auto px-6 py-24">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-serif text-corporate mb-8">Investment Focus</h2>
-                <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                    We maintain strategic interests in established markets across Asia, with a balanced approach to investment and asset management.
-                </p>
-                <p class="text-gray-600 text-lg leading-relaxed">
-                    Our portfolio spans multiple sectors, managed with professional expertise and international standards.
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-gray-100 py-24">
+        <!-- Key Areas Section -->
+        <section class="py-24 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <h3 class="text-xl font-serif text-corporate mb-4">Investment</h3>
                         <p class="text-gray-600">
                             Strategic portfolio management across diverse sectors.
                         </p>
                     </div>
-                    <div class="text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <h3 class="text-xl font-serif text-corporate mb-4">Operations</h3>
                         <p class="text-gray-600">
                             Professional management with international standards.
                         </p>
                     </div>
-                    <div class="text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <h3 class="text-xl font-serif text-corporate mb-4">Development</h3>
                         <p class="text-gray-600">
                             Long-term value creation in key markets.
@@ -142,11 +201,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer class="bg-corporate-dark text-white mt-auto">
-        <div class="container mx-auto px-6 py-8">
+    <footer class="bg-corporate-dark text-white">
+        <div class="container mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h3 class="text-lg font-serif mb-4">Orion Holding Limited</h3>
@@ -170,6 +229,16 @@
             menu.classList.toggle('active');
             document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
         }
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-corporate');
+            } else {
+                header.classList.remove('bg-corporate');
+            }
+        });
     </script>
 </body>
 </html> 

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>獵戶座控股有限公司</title>
-    <meta name="description" content="獵戶座控股有限公司 - 成立於2016年">
+    <title>Orion Holding Limited</title>
+    <meta name="description" content="Orion Holding Limited - 策略投資與永續發展">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
@@ -32,6 +32,13 @@
         }
     </script>
     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
         .mobile-menu {
             display: none;
             position: fixed;
@@ -45,21 +52,61 @@
         .mobile-menu.active {
             display: flex;
         }
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        @media (max-width: 640px) {
+            .hero-section {
+                background-image: url('../images/headers/mobile/index-header.jpg');
+            }
+        }
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .hero-section {
+                background-image: url('../images/headers/tablet/index-header.jpg');
+            }
+        }
+        @media (min-width: 1025px) {
+            .hero-section {
+                background-image: url('../images/headers/desktop/index-header.jpg');
+            }
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8));
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <header class="bg-corporate text-white">
+    <!-- Fixed Header -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="mainHeader">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="text-xl font-serif">
-                    <a href="index.html" class="hover:text-accent transition text-2xl">Orion Holding Limited</a>
+                    <a href="index.html" class="text-white hover:text-accent transition">Orion Holding Limited</a>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="hover:text-accent transition">首頁</a>
-                    <a href="about.html" class="hover:text-accent transition">關於我們</a>
-                    <a href="presence.html" class="hover:text-accent transition">全球佈局</a>
-                    <a href="contact.html" class="hover:text-accent transition">聯絡方式</a>
-                    <a href="../index.html" class="hover:text-accent transition">English</a>
+                    <a href="index.html" class="text-white hover:text-accent transition">首頁</a>
+                    <a href="about.html" class="text-white hover:text-accent transition">關於我們</a>
+                    <a href="presence.html" class="text-white hover:text-accent transition">全球據點</a>
+                    <a href="contact.html" class="text-white hover:text-accent transition">聯絡方式</a>
+                    <a href="../index.html" class="text-white hover:text-accent transition">English</a>
                 </div>
                 <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,7 +128,7 @@
             <nav class="flex flex-col space-y-8 text-2xl text-white">
                 <a href="index.html" class="hover:text-accent transition">首頁</a>
                 <a href="about.html" class="hover:text-accent transition">關於我們</a>
-                <a href="presence.html" class="hover:text-accent transition">全球佈局</a>
+                <a href="presence.html" class="hover:text-accent transition">全球據點</a>
                 <a href="contact.html" class="hover:text-accent transition">聯絡方式</a>
                 <a href="../index.html" class="hover:text-accent transition">English</a>
             </nav>
@@ -89,66 +136,79 @@
     </div>
 
     <main>
-        <div class="relative h-screen max-h-[800px] bg-corporate-dark">
-            <div class="absolute inset-0 bg-black opacity-40"></div>
-            <div class="relative container mx-auto px-6 h-full flex items-center">
-                <div class="text-white max-w-3xl">
-                    <h1 class="text-5xl md:text-6xl font-serif mb-8 leading-tight">
-                        策略投資 永續發展
-                    </h1>
-                    <p class="text-xl md:text-2xl opacity-90 font-light mb-4">
-                        成立於2016年的策略性投資控股公司
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="relative h-full flex items-center">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl animate-fade-in">
+                        <h1 class="text-5xl md:text-7xl font-serif text-white mb-8 leading-tight">
+                            策略投資<br>
+                            <span class="text-accent">永續發展</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-white opacity-90 font-light mb-6">
+                            成立於2016年的策略性投資控股公司
+                        </p>
+                        <p class="text-lg md:text-xl text-white opacity-80">
+                            專注於亞洲地區的永續發展與價值創造
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <svg class="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Investment Focus Section -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-serif text-corporate mb-8">投資重點</h2>
+                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-6">
+                        我們在亞洲各個成熟市場保持策略性投資，採取平衡的投資與資產管理方針。
                     </p>
-                    <p class="text-lg md:text-xl opacity-80">
-                        專注於亞洲地區的永續發展與價值創造
+                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed">
+                        我們的投資組合橫跨多個領域，以專業知識和國際標準進行管理。
                     </p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="container mx-auto px-6 py-24">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-serif text-corporate mb-8">投資重點</h2>
-                <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                    我們在亞洲各地建立策略性投資布局，採取均衡的投資與資產管理方針。
-                </p>
-                <p class="text-gray-600 text-lg leading-relaxed">
-                    我們的投資組合涵蓋多個領域，以專業知識和國際標準進行管理。
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-gray-100 py-24">
+        <!-- Key Areas Section -->
+        <section class="py-24 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="text-center">
-                        <h3 class="text-xl font-serif text-corporate mb-4">投資管理</h3>
+                    <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-serif text-corporate mb-4">投資策略</h3>
                         <p class="text-gray-600">
                             跨領域的策略性投資組合管理。
                         </p>
                     </div>
-                    <div class="text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <h3 class="text-xl font-serif text-corporate mb-4">營運管理</h3>
                         <p class="text-gray-600">
-                            符合國際標準的專業營運管理。
+                            以國際標準進行專業管理。
                         </p>
                     </div>
-                    <div class="text-center">
-                        <h3 class="text-xl font-serif text-corporate mb-4">發展策略</h3>
+                    <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-serif text-corporate mb-4">發展方向</h3>
                         <p class="text-gray-600">
-                            重點市場的長期價值創造。
+                            在重點市場創造長期價值。
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer class="bg-corporate-dark text-white mt-auto">
-        <div class="container mx-auto px-6 py-8">
+    <footer class="bg-corporate-dark text-white">
+        <div class="container mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h3 class="text-xl font-serif mb-4">Orion Holding Limited</h3>
+                    <h3 class="text-lg font-serif mb-4">Orion Holding Limited</h3>
                     <p class="text-gray-300 text-sm">
                         成立於2016年
                     </p>
@@ -169,6 +229,16 @@
             menu.classList.toggle('active');
             document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
         }
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-corporate');
+            } else {
+                header.classList.remove('bg-corporate');
+            }
+        });
     </script>
 </body>
 </html> 
