@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Orion Holding Limited</title>
+    <meta name="description" content="Orion Holding Limited - Est. 2016">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corporate: {
+                            DEFAULT: '#1a365d',
+                            light: '#2d5a9e',
+                            dark: '#0f172a',
+                        },
+                        accent: {
+                            DEFAULT: '#c8b273',
+                            light: '#e2d4a7',
+                            dark: '#96833d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(26, 54, 93, 0.98);
+            z-index: 50;
+        }
+        .mobile-menu.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="bg-corporate text-white">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-serif">
+                    <a href="index.html" class="hover:text-accent transition">Orion Holding Limited</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-accent transition">Home</a>
+                    <a href="about.html" class="hover:text-accent transition">About</a>
+                    <a href="presence.html" class="hover:text-accent transition">Presence</a>
+                    <a href="contact.html" class="hover:text-accent transition">Contact</a>
+                </div>
+                <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu items-center justify-center">
+        <div class="text-center">
+            <button class="absolute top-4 right-6 text-white focus:outline-none" onclick="toggleMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <nav class="flex flex-col space-y-8 text-2xl text-white">
+                <a href="index.html" class="hover:text-accent transition">Home</a>
+                <a href="about.html" class="hover:text-accent transition">About</a>
+                <a href="presence.html" class="hover:text-accent transition">Presence</a>
+                <a href="contact.html" class="hover:text-accent transition">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <div class="bg-corporate-dark text-white py-20">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl font-serif mb-6">About Us</h1>
+                <p class="text-xl opacity-85 max-w-3xl">
+                    Established in 2016, Orion Holding Limited operates with a focus on sustainable value creation and strategic investments across Asia.
+                </p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-2xl font-serif text-corporate mb-6">Overview</h2>
+                    <p class="text-gray-600 mb-4">
+                        Based in Asia, we maintain strategic interests across various sectors, combining regional insights with international standards of operation.
+                    </p>
+                    <p class="text-gray-600">
+                        Our approach emphasizes careful evaluation and long-term value creation, supported by professional expertise and market understanding.
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-serif text-corporate mb-6">Approach</h2>
+                    <p class="text-gray-600 mb-4">
+                        We focus on identifying opportunities that align with our investment criteria and risk management principles, maintaining a balanced portfolio across different markets.
+                    </p>
+                    <p class="text-gray-600">
+                        Through professional management and strategic oversight, we work to create sustainable value while maintaining the highest standards of corporate governance.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-100 py-20">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <div class="text-center">
+                            <h3 class="text-xl font-serif text-corporate mb-4">Strategy</h3>
+                            <p class="text-gray-600">
+                                Strategic investments with a focus on long-term growth potential.
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-xl font-serif text-corporate mb-4">Management</h3>
+                            <p class="text-gray-600">
+                                Professional oversight with emphasis on value preservation.
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-xl font-serif text-corporate mb-4">Governance</h3>
+                            <p class="text-gray-600">
+                                Maintaining high standards of corporate responsibility.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-corporate-dark text-white mt-auto">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-serif mb-4">Orion Holding Limited</h3>
+                    <p class="text-gray-300 text-sm">
+                        Est. 2016
+                    </p>
+                </div>
+                <div class="text-right">
+                    <p class="text-gray-300 text-sm">
+                        © 2016 Orion Holding Limited.<br>
+                        All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
+</body>
+</html> 

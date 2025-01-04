@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion Holding Limited</title>
+    <meta name="description" content="Orion Holding Limited - Est. 2016">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corporate: {
+                            DEFAULT: '#1a365d',
+                            light: '#2d5a9e',
+                            dark: '#0f172a',
+                        },
+                        accent: {
+                            DEFAULT: '#c8b273',
+                            light: '#e2d4a7',
+                            dark: '#96833d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(26, 54, 93, 0.98);
+            z-index: 50;
+        }
+        .mobile-menu.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="bg-corporate text-white">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-serif">
+                    <a href="index.html" class="hover:text-accent transition">Orion Holding Limited</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-accent transition">Home</a>
+                    <a href="about.html" class="hover:text-accent transition">About</a>
+                    <a href="presence.html" class="hover:text-accent transition">Presence</a>
+                    <a href="contact.html" class="hover:text-accent transition">Contact</a>
+                    <a href="zh/index.html" class="hover:text-accent transition">中文</a>
+                </div>
+                <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu items-center justify-center">
+        <div class="text-center">
+            <button class="absolute top-4 right-6 text-white focus:outline-none" onclick="toggleMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <nav class="flex flex-col space-y-8 text-2xl text-white">
+                <a href="index.html" class="hover:text-accent transition">Home</a>
+                <a href="about.html" class="hover:text-accent transition">About</a>
+                <a href="presence.html" class="hover:text-accent transition">Presence</a>
+                <a href="contact.html" class="hover:text-accent transition">Contact</a>
+                <a href="zh/index.html" class="hover:text-accent transition">中文</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <div class="relative h-screen max-h-[800px] bg-corporate-dark">
+            <div class="absolute inset-0 bg-black opacity-40"></div>
+            <div class="relative container mx-auto px-6 h-full flex items-center">
+                <div class="text-white max-w-3xl">
+                    <h1 class="text-5xl md:text-6xl font-serif mb-8 leading-tight">
+                        Strategic Investment<br>
+                        Sustainable Growth
+                    </h1>
+                    <p class="text-xl md:text-2xl opacity-90 font-light mb-4">
+                        A strategic investment holding company established in 2016
+                    </p>
+                    <p class="text-lg md:text-xl opacity-80">
+                        Focused on sustainable growth and value creation across Asia
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 py-24">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-serif text-corporate mb-8">Investment Focus</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    We maintain strategic interests in established markets across Asia, with a balanced approach to investment and asset management.
+                </p>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Our portfolio spans multiple sectors, managed with professional expertise and international standards.
+                </p>
+            </div>
+        </div>
+
+        <div class="bg-gray-100 py-24">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="text-center">
+                        <h3 class="text-xl font-serif text-corporate mb-4">Investment</h3>
+                        <p class="text-gray-600">
+                            Strategic portfolio management across diverse sectors.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-serif text-corporate mb-4">Operations</h3>
+                        <p class="text-gray-600">
+                            Professional management with international standards.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-serif text-corporate mb-4">Development</h3>
+                        <p class="text-gray-600">
+                            Long-term value creation in key markets.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-corporate-dark text-white mt-auto">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-serif mb-4">Orion Holding Limited</h3>
+                    <p class="text-gray-300 text-sm">
+                        Est. 2016
+                    </p>
+                </div>
+                <div class="text-right">
+                    <p class="text-gray-300 text-sm">
+                        © 2016 Orion Holding Limited.<br>
+                        All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
+</body>
+</html> 
